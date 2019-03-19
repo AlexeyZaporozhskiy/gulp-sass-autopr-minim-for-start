@@ -10,7 +10,7 @@ gulp.task('serve', function() {
     browserSync.init({
         server: "./"
     });
-    gulp.watch("app/sass/*.sass", gulp.parallel('sass','autoprefixer'));
+    gulp.watch("app/sass/*.sass", gulp.parallel('sass'));
     gulp.watch("*.html").on('change', browserSync.reload);
 });
 
