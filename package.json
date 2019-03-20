@@ -1,0 +1,26 @@
+{
+  "name": "alexeyzaporozhskiy.github.io",
+  "version": "1.0.0",
+  "description": "test_work",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexeyZaporozhskiy/AlexeyZaporozhskiy.github.io.git"
+  },
+  "author": "Aleksey.Z",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlexeyZaporozhskiy/AlexeyZaporozhskiy.github.io/issues"
+  },
+  "homepage": "https://github.com/AlexeyZaporozhskiy/AlexeyZaporozhskiy.github.io#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-sass": "^4.0.2"
+  }
+}
