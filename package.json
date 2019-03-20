@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/AlexeyZaporozhskiy/AlexeyZaporozhskiy.github.io.git"
   },
-  "author": "AlekseyZ",
-  "license": "ISC",
+  "author": "Aleksey.Z",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/AlexeyZaporozhskiy/AlexeyZaporozhskiy.github.io/issues"
   },
@@ -20,6 +20,7 @@
     "browser-sync": "^2.26.3",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
+    "gulp-clean-css": "^4.0.0",
     "gulp-sass": "^4.0.2"
   }
 }

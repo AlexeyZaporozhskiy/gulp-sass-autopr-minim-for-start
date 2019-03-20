@@ -1,37 +1,45 @@
-var gulp            = require('gulp');
-var browserSync     = require('browser-sync');
-var sass            = require('gulp-sass');
-const autoprefixer  = require('gulp-autoprefixer');
+
+ 
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var browserSync = require('browser-sync').create();
+var autoprefixer = require('gulp-autoprefixer');
+var cleanCSS = require('gulp-clean-css');
 
 
-// Static Server + watching scss/html files
-gulp.task('serve', function() {
+var dir = {
+    styles: {
+        src: 'src/sass/*.sass',
+        project: 'production/css'
+    }
+}; 
 
+function serv() {
     browserSync.init({
         server: "./"
     });
-    gulp.watch("app/sass/*.sass", gulp.parallel('sass','autoprefixer'));
-    gulp.watch("*.html").on('change', browserSync.reload);
-});
+}
 
+function watch(){
+    gulp.watch(dir.styles.src, style);
+    gulp.watch('./*.html').on('change',browserSync.reload);
+}
 
-
-
-
-// Compile sass into CSS & auto-inject into browsers
-gulp.task('sass', function() {
-    return gulp.src('app/sass/*.+(sass|scss)')
-        .pipe(sass())
-	    .pipe(autoprefixer(['last 15 versions']))
-        .pipe(gulp.dest("production/css"))
+function style() {
+    return gulp.src(dir.styles.src)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer({
+            browsers: ['last 3 versions'],
+            cascade: false
+        }))
+        .pipe(cleanCSS({
+            level: 2
+        }))
+        .pipe(gulp.dest(dir.styles.project))
         .pipe(browserSync.stream());
-});
 
+}
 
+var server = gulp.parallel(serv, watch);
 
-
-
-
-
-
-gulp.task('default', gulp.parallel('serve','sass'));
+gulp.task('default', server);
