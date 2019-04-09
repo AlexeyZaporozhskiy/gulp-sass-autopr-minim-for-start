@@ -9,7 +9,7 @@ var cleanCSS = require('gulp-clean-css');
 
 var dir = {
     styles: {
-        src: 'src/sass/*.sass',
+        src: 'src/sass/*.+(scss|sass)',
         project: 'production/css'
     }
 }; 
